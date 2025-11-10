@@ -250,7 +250,15 @@ RULES:
 - DO NOT make up URLs or context
 
 FORMAT:
-- [Name](url) OR [Name] (link not captured) - **Person** - Context from their message
+- [Descriptive title for the link](actual_url_here) - **Person Name** - Context from their message
+OR if no URL available:
+- [Document Title] (link not captured) - **Person Name** - Context from their message
+
+EXAMPLE with URL:
+- [Terraform PR](https://github.com/DataDog/terraform-config/pull/40928/files) - **Jo Hoenzsch** - Mentioned issues with CI checks failing
+
+EXAMPLE without URL:
+- [Appendix of Bazel Rules] (link not captured) - **Champak Das** - Shared as documentation on common bzl rules
 
 Be ACCURATE - only attribute to the person who actually shared it!
 
