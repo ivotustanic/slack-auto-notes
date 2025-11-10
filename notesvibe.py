@@ -17,6 +17,9 @@ config_file = Path(__file__).parent / "config.ini"
 if config_file.exists():
     config.read(config_file)
     OPENAI_API_KEY = config.get('openai', 'api_key', fallback=None)
+    # If config has placeholder, check environment
+    if OPENAI_API_KEY == "YOUR_OPENAI_API_KEY_HERE":
+        OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     vault_path = config.get('obsidian', 'vault_path', fallback="~/Documents/Obsidian Vault")
     OBSIDIAN_VAULT = Path(vault_path).expanduser()
     MODEL = config.get('settings', 'model', fallback="gpt-4o-mini")
@@ -26,7 +29,7 @@ if config_file.exists():
 else:
     # Default configuration
     OBSIDIAN_VAULT = Path("~/Documents/Obsidian Vault").expanduser()
-    OPENAI_API_KEY = None
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     MODEL = "gpt-4o-mini"
     MAX_TOKENS = 2000
     TEMPERATURE = 0.3
@@ -235,18 +238,21 @@ IMPORTANT CLEANING RULES:
 Create ONLY these 3 sections:
 
 ## 🔗 Links & Resources
-EXTREMELY IMPORTANT: Extract EVERY SINGLE link and document from the ENTIRE conversation!
-- Search the WHOLE conversation for ALL http:// or https:// links
-- Include GitHub, JIRA, Google Docs, Slack links, etc.
+CRITICAL: The conversation may contain:
+1. Full URLs (http:// or https://) - Extract these exactly
+2. Link titles without URLs (e.g., "Appendix of Bazel Rules") - Mark these as [Title] (no URL available)
+3. References to documents/sites without links - Include these too
 
-FORMAT each link as:
-- [Descriptive Name](actual_url) - **Person Name** - **What it is** - Full context including why they shared it, what problem it solves, any deadlines mentioned. Include their actual words in quotes if helpful.
+RULES:
+- Find the EXACT person who shared each link/document by checking MESSAGE FROM
+- Use ONLY context from their actual message
+- If no URL is provided, write "[Document Name] (link not captured)"
+- DO NOT make up URLs or context
 
-EXAMPLE:
-- [Appendix of Bazel Rules](https://docs.google.com/doc/xyz) - **Champak Das** - **Documentation on common bzl rules** - Shared as essential reading material after team completed gov training. He said "now that you guys are done with the gov training, here is some reading material". Part of 3 docs about log systems for Q1 agent telemetry work.
-- [JIRA Board](https://jira.xyz/board) - **Jo Hoenzsch** - **Team's backlog board** - Shared when discussing which agent integration error categories to tackle this quarter. Context: "Please feel free to pick what categories you want to look at"
+FORMAT:
+- [Name](url) OR [Name] (link not captured) - **Person** - Context from their message
 
-REMEMBER: Someone reading this in 6 months needs the FULL context!
+Be ACCURATE - only attribute to the person who actually shared it!
 
 ## 📌 Key Points
 Create DETAILED bullet points with full context:
@@ -281,7 +287,7 @@ CRITICAL:
             response = client.chat.completions.create(
                 model=MODEL,
                 messages=[
-                    {"role": "system", "content": "You are a helpful assistant that extracts and organizes information from Slack conversations. CRITICAL: Find and extract ALL URLs that start with http:// or https://. Do NOT use placeholder URLs like 'actual_url'."},
+                    {"role": "system", "content": "You are a helpful assistant that extracts and organizes information from Slack conversations. CRITICAL RULES: 1) Extract ALL URLs exactly as they appear. 2) ONLY attribute links to the person who actually shared them - check MESSAGE FROM field. 3) Use ONLY the context that actually appears in the messages - DO NOT make up or infer context. 4) If context is unclear, say 'Shared without additional context' rather than guessing."},
                     {"role": "user", "content": prompt}
                 ],
                 max_tokens=MAX_TOKENS,
