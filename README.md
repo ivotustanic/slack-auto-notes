@@ -101,22 +101,22 @@ Your Slack conversations are transformed into beautiful Obsidian notes:
 #### 🔗 Links & Resources Section
 All shared links are extracted with full context about who shared them and why:
 
-<img width="513" height="486" alt="image" src="https://github.com/user-attachments/assets/9f644190-51a9-43ce-ba27-0b9bb4430899" />
+<img width="512" height="109" alt="image" src="https://github.com/user-attachments/assets/f7bae0ba-e140-42c1-b5ae-33ce22d42ce3" />
 
 #### 📌 Key Points Section  
 Important discussions and decisions are highlighted:
 
-<img width="487" height="306" alt="image" src="https://github.com/user-attachments/assets/592cc9e0-13d4-4978-8599-89221f8ac3e6" />
+<img width="497" height="48" alt="image" src="https://github.com/user-attachments/assets/f2a1d333-e7f1-4b01-a9a0-7cfa55b222ad" />
 
 #### 💬 Summary Section
 High-level overview of the conversation:
 
-<img width="513" height="203" alt="image" src="https://github.com/user-attachments/assets/a31b7fba-e8e8-462b-8b35-c2898d0561d4" />
+<img width="506" height="56" alt="image" src="https://github.com/user-attachments/assets/53ca0590-3d64-4262-a652-b21626e0eb4b" />
 
 #### Full Conversation & Raw Text
 Collapsible sections preserve the complete message history:
 
-<img width="529" height="409" alt="image" src="https://github.com/user-attachments/assets/7c719310-0569-4ebb-9174-7552380f43f1" />
+<img width="511" height="155" alt="image" src="https://github.com/user-attachments/assets/eab7b706-a5f1-4a9e-b392-b47bea05e78e" />
 
 ## Configuration Options ⚙️
 
