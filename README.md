@@ -1,0 +1,166 @@
+# Slack Auto Notes 📝
+
+Transform messy Slack copy-paste into beautifully organized Obsidian notes with AI-powered summaries.
+
+## Features ✨
+
+- **AI-Powered Organization**: Uses OpenAI to extract links, key points, and create structured summaries
+- **Smart Link Extraction**: Finds all shared links with full context about who shared them and why
+- **Clean Formatting**: Removes emoji codes, metadata, and technical noise from Slack exports
+- **Obsidian Integration**: Creates properly formatted markdown notes with collapsible sections
+- **Batch Processing**: Archive multiple channels at once
+- **Monthly Organization**: Automatically organizes notes by month in your Obsidian vault
+
+## Quick Start 🚀
+
+### 1. Prerequisites
+
+- Python 3.8+
+- OpenAI API key ([get one here](https://platform.openai.com/api-keys))
+- Obsidian vault
+
+### 2. Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/slack-auto-notes.git
+cd slack-auto-notes
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 3. Configuration
+
+Edit `config.ini` with your settings:
+
+```ini
+[openai]
+api_key = YOUR_OPENAI_API_KEY_HERE
+
+[obsidian]
+vault_path = ~/Documents/Obsidian Vault
+```
+
+### 4. Usage
+
+#### Copy from Slack
+1. Open any Slack channel or DM
+2. Scroll up to load ~30 days of history
+3. Select all messages (Cmd+A / Ctrl+A)
+4. Copy (Cmd+C / Ctrl+C)
+
+#### Run Slack Auto Notes
+
+**Interactive mode**:
+```bash
+python notesvibe.py
+# Choose option 1 or 2 for file/folder processing
+```
+
+**File mode** (save Slack text to file first):
+```bash
+python notesvibe.py -f slack_export.txt -c "Channel Name"
+```
+
+**Batch mode** (process multiple channels):
+```bash
+# Edit channels_example.txt with your channel list
+python notesvibe.py -f channels_example.txt
+```
+
+## What You Get 📄
+
+Each archived channel creates a beautiful Obsidian note with:
+
+### AI-Generated Summary
+- **🔗 Links & Resources**: All shared links with context about who shared them and why
+- **📌 Key Points**: Important discussions, decisions, and action items
+- **💬 Summary**: High-level overview of the conversation
+
+### Full Message History
+- Clean, Slack-like formatting
+- 🔗 indicators for messages containing links
+- Collapsible section to save space
+- Clickable hyperlinks
+
+### Example Output
+
+Your Slack conversations are transformed into beautiful Obsidian notes:
+
+#### 🔗 Links & Resources Section
+All shared links are extracted with full context about who shared them and why:
+
+<img width="800" alt="Links and Resources section showing extracted URLs with attribution and context" src="https://github.com/user-attachments/assets/links-section-example.png">
+
+#### 📌 Key Points Section  
+Important discussions and decisions are highlighted:
+
+<img width="800" alt="Key Points section with detailed bullet points of important discussions" src="https://github.com/user-attachments/assets/key-points-example.png">
+
+#### 💬 Summary Section
+High-level overview of the conversation:
+
+<img width="800" alt="Summary section with main themes and action items" src="https://github.com/user-attachments/assets/summary-section-example.png">
+
+#### Full Conversation & Raw Text
+Collapsible sections preserve the complete message history:
+
+<img width="800" alt="Collapsible sections for full conversation and raw text" src="https://github.com/user-attachments/assets/collapsible-sections.png">
+
+## Configuration Options ⚙️
+
+Edit `config.ini` to customize:
+
+```ini
+[settings]
+model = gpt-4o-mini          # OpenAI model (gpt-4o-mini is fast & cheap)
+max_tokens = 2000            # Response length (higher = more detail)
+temperature = 0.3            # AI creativity (0.0-1.0)
+archive_folder = Slack Archives  # Folder name in your vault
+```
+
+## Tips 💡
+
+- **Best Results**: Copy entire conversation from Slack (scroll to top first)
+- **Monthly Archives**: Notes are automatically organized by month
+- **Index File**: An INDEX.md is created listing all archived channels
+- **Cost**: Using gpt-4o-mini costs ~$0.01 per channel archive
+
+## Troubleshooting 🔧
+
+**"No OpenAI API key configured"**
+- Edit `config.ini` and add your API key
+- Or set environment variable: `export OPENAI_API_KEY=your_key`
+
+**"Obsidian vault not found"**
+- Check the path in `config.ini`
+- Spaces in paths are fine: `~/Documents/Obsidian Vault`
+
+**Poor formatting**
+- Make sure to copy from Slack's main message area
+- Avoid copying from thread views or search results
+
+## Privacy & Security 🔒
+
+- All processing happens locally on your machine
+- Only the text you provide is sent to OpenAI for summarization
+- No data is stored outside your Obsidian vault
+- API keys are never transmitted except to OpenAI
+
+## Requirements 📦
+
+- `openai>=1.0.0` - For AI summaries
+- `python-dotenv` - For environment variables
+
+## License
+
+MIT License - See LICENSE file for details
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+Made with ❤️ for the Obsidian community

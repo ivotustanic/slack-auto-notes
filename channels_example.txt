@@ -1,0 +1,15 @@
+# Example channel list for batch processing
+# One channel/DM name per line
+# Lines starting with # are ignored
+
+# Team channels
+team-engineering
+team-standup
+project-alpha
+
+# Direct messages
+John Smith
+Sarah Johnson
+
+# Group DMs
+Engineering Leads

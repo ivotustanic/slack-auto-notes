@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific
+config.ini
+*.txt
+!requirements.txt
+!channels_example.txt
+
+# Temporary files
+*.tmp
+*.bak
+*.log
