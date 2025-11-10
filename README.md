@@ -17,7 +17,7 @@ Transform messy Slack copy-paste into beautifully organized Obsidian notes with 
 
 - Python 3.8+
 - OpenAI API key ([get one here](https://platform.openai.com/api-keys))
-- ([Obsidian Notes](https://obsidian.md/))
+- [Obsidian Notes](https://obsidian.md/)
 
 ### 2. Installation
 
