@@ -101,7 +101,7 @@ Your Slack conversations are transformed into beautiful Obsidian notes:
 #### 🔗 Links & Resources Section
 All shared links are extracted with full context about who shared them and why:
 
-<img width="512" height="109" alt="image" src="https://github.com/user-attachments/assets/f7bae0ba-e140-42c1-b5ae-33ce22d42ce3" />
+<img width="478" height="68" alt="image" src="https://github.com/user-attachments/assets/e39267c2-d3c1-439c-bc13-2b86b3f94029" />
 
 #### 📌 Key Points Section  
 Important discussions and decisions are highlighted:
