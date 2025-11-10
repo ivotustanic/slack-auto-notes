@@ -1,0 +1,31 @@
+# Slack Auto Notes Configuration Template
+# Copy this file to config.ini and edit with your settings
+
+[openai]
+# Your OpenAI API key for AI-powered summaries
+# Get one at: https://platform.openai.com/api-keys
+api_key = YOUR_OPENAI_API_KEY_HERE
+
+[obsidian]
+# Path to your Obsidian vault
+# Examples:
+# - Mac: ~/Documents/Obsidian Vault
+# - Windows: C:\Users\YourName\Documents\Obsidian Vault
+# - Linux: ~/Documents/ObsidianVault
+# Note: Spaces in the path are fine! Just write it normally
+vault_path = ~/Documents/Obsidian Vault
+
+[settings]
+# Optional settings (defaults shown)
+
+# Model to use for AI summaries (gpt-4o-mini is fast and cheap)
+model = gpt-4o-mini
+
+# Maximum tokens for AI response (higher = more detailed summaries)
+max_tokens = 2000
+
+# Temperature for AI creativity (0.0-1.0, lower = more consistent)
+temperature = 0.3
+
+# Folder name within vault for Slack archives
+archive_folder = Slack Archives

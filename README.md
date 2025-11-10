@@ -32,7 +32,17 @@ pip install -r requirements.txt
 
 ### 3. Configuration
 
-Edit `config.ini` with your settings:
+Create your config file from the template:
+
+```bash
+# Copy the template
+cp config.ini.template config.ini
+
+# Edit with your settings
+nano config.ini  # or use your preferred editor
+```
+
+Add your OpenAI API key and Obsidian vault path:
 
 ```ini
 [openai]
