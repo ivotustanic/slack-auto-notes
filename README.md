@@ -58,6 +58,7 @@ vault_path = ~/Documents/Obsidian Vault
 1. Open any Slack channel or DM
 2. Scroll bottom to up to load ~30 days of history **while selecting (left click)**
 3. Copy (Cmd+C / Ctrl+C)
+4. Save clipboard into a text file
 
 #### Run Slack Auto Notes
 
